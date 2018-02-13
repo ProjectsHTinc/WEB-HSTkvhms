@@ -607,7 +607,7 @@ Class Smsmodel extends CI_Model
            $abs_date=$rows->abs_date;
            $abs_status=$rows->abs_atatus;
 
-           $textmessage='Your child '.$st_name.' was marked '.$abs_status.' today, '.$abs_date.' ON '.$at_ses.' To Known more details login into http://bit.ly/2wLwdRQ';
+           $textmessage='Your child '.$st_name.' was marked '.$abs_status.' ON '.$abs_date.'. To Known more details login into http://bit.ly/2wLwdRQ';
 
           $textmsg =urlencode($textmessage);
           $smsGatewayUrl = 'http://173.45.76.227/send.aspx?';
