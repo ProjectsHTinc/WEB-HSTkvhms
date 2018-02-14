@@ -194,7 +194,7 @@ class Apimain extends CI_Controller {
 		     $uploadPicdir = 'assets/teachers/profile/';
 		}
 		else if ($user_type==3) {
-		    $uploadPicdir = 'assets/student/profile/';
+		    $uploadPicdir = 'assets/students/profile/';
 		}
 		else {
 		   $uploadPicdir = 'assets/parents/profile/';
@@ -281,7 +281,7 @@ class Apimain extends CI_Controller {
 		     $uploadPicdir = 'assets/teachers/profile/';
 		}
 		else if ($user_type==3) {
-		    $uploadPicdir = 'assets/student/profile/';
+		    $uploadPicdir = 'assets/students/profile/';
 		}
 		else {
 		   $uploadPicdir = 'assets/parents/profile/';
