@@ -147,7 +147,7 @@ class Apiteachermodel extends CI_Model {
                         INNER JOIN edu_attendence AS at ON ah.attend_id = at.at_id
                         INNER JOIN edu_classmaster AS cm ON en.class_id = cm.class_sec_id
                         INNER JOIN edu_class AS c ON cm.class=c.class_id 
-                        INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND ah.abs_date = '$disp_date' GROUP by ah.student_id)  GROUP by en.enroll_id";
+                        INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND ah.abs_date = '$disp_date' GROUP by ah.student_id) GROUP by en.enroll_id order by name";
     				
         				$attend_res = $this->db->query($attend_query);
             			$attend_result= $attend_res->result();
@@ -181,8 +181,7 @@ class Apiteachermodel extends CI_Model {
                     INNER JOIN edu_attendence AS at ON ah.attend_id = at.at_id
                     INNER JOIN edu_classmaster AS cm ON en.class_id = cm.class_sec_id
                     INNER JOIN edu_class AS c ON cm.class=c.class_id 
-                    INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND en.admit_year = '$year_id' AND ah.abs_date >= '$first_date' AND ah.abs_date <= '$last_date' 
-                    GROUP BY ah.student_id
+                    INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND en.admit_year = '$year_id' AND ah.abs_date >= '$first_date' AND ah.abs_date <= '$last_date' GROUP BY ah.student_id
 
                     UNION ALL
 
@@ -195,8 +194,7 @@ class Apiteachermodel extends CI_Model {
                     INNER JOIN edu_attendence AS at ON ah.attend_id = at.at_id
                     INNER JOIN edu_classmaster AS cm ON en.class_id = cm.class_sec_id
                     INNER JOIN edu_class AS c ON cm.class=c.class_id 
-                    INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND ah.abs_date >= '$first_date' AND ah.abs_date <= '$last_date')
-                    GROUP BY en.enroll_id";
+                    INNER JOIN edu_sections AS s ON cm.section=s.sec_id WHERE en.class_id='$class_id' AND ah.abs_date >= '$first_date' AND ah.abs_date <= '$last_date') GROUP BY en.enroll_id order by name";
                     
 /*
 			        $attend_query = "SELECT COUNT(ah.student_id)/2 as leaves,en.enroll_id, en.class_id, en.name, c.class_name, s.sec_name, ah.abs_date, ah.a_status, ah.attend_period, at.at_id FROM edu_enrollment en
